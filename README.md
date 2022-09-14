@@ -3,6 +3,7 @@
 This function gets triggered when a new key is created in the source vault and makes a copy of the new key in the destination key vault. 
 
 You can find everything about this project in the following blog post that I wrote.
+
 https://medium.com/@yamchi/how-to-design-an-event-driven-architecture-to-back-up-a-key-from-an-azure-key-vault-using-event-de170940bfce
 
 # Testing:
