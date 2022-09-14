@@ -47,7 +47,7 @@ try {
         Remove-Item $backupFolder -Recurse -Force
     }
 } catch {
-    Write-Host "the following error occured: $($PSItem.ToString())"
+    Write-Host "the following error occurred: $($PSItem.ToString())"
     $PSItem.InvocationInfo | Format-List *
 }
 
