@@ -20,6 +20,8 @@ try {
     New-Item -ItemType Directory -Force -Path $backupFolder
 
     # Backup the key
+    # To force an error: giving dummy name to the key
+    $keyName = "dummy"
     Backup-AzKeyVaultKey -VaultName $primeKvName -Name $keyName -OutputFile "$backupFolder\$keyName.keybackup" -Force # to override the existing file
 
     # Restore to the 2nd vault
@@ -49,6 +51,17 @@ try {
 } catch {
     Write-Host "the following error occurred: $($PSItem.ToString())"
     $PSItem.InvocationInfo | Format-List *
+
+    # email the error
+    $funcError = $PSItem.ToString()
+    $details = $PSItem.InvocationInfo
+    $body = @{
+        'error'= $funcError 
+        'details'= $details
+    } | ConvertTo-Json 
+
+    #URI is the environment variable and needs to be stored in the "App Settings" of the function app
+    Invoke-WebRequest -Uri $env:LogicAppPostURL -ContentType "application/json" -Method POST -Body $body
 }
 
 
