@@ -52,7 +52,7 @@ try {
     Write-Host "the following error occurred: $($PSItem.ToString())"
     $PSItem.InvocationInfo | Format-List *
 
-    # email the error
+    # Post Request - Logic App
     $funcError = $PSItem.ToString()
     $details = $PSItem.InvocationInfo
     $body = @{
