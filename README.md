@@ -6,6 +6,8 @@ You can find everything about this project in the following blog post that I wro
 
 https://medium.com/@yamchi/how-to-design-an-event-driven-architecture-to-back-up-a-key-from-an-azure-key-vault-using-event-de170940bfce
 
+https://medium.com/@yamchi/how-to-catch-an-error-in-an-azure-function-and-email-or-send-it-to-an-ms-teams-channel-via-azure-418c7712b26
+
 # Testing:
 To test the function, fork and make a clone of this project.
 Open the project in VS code and deploy it to the azure function app in your account.
